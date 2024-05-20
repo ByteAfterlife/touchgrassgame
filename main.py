@@ -17,7 +17,8 @@ class menus():
     W: Move camera forward
     A: Move camera left
     S: Move camera backward
-    D: Move camera right"""
+    D: Move camera right
+    Left click: Touch the grass"""
 
         label = CTk.CTkLabel(helpgui, text=label_text, font=("Arial", 16))
         label.pack(pady=20, padx=20)
