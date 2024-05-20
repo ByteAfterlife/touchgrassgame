@@ -1,4 +1,2 @@
-pip install panda3d
-pip install pillow
-pip install numpy
+pip install -r requirements.txt
 python main.py
