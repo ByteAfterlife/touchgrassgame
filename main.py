@@ -7,7 +7,12 @@ from panda3d.core import LVector3
 import sys
 import random
 import customtkinter as CTk
+import hashlib, sys
+from base64 import b64decode
+import os
 stupidtips = ["Did you know that grass has ass in it?", "Touching virtual grass won't increase your actual health! Go touch real grass.", "Why did the sheep eat grass? Because it was hungry *cricket chirping*", "What is in between the letters G and H on your keyboard is the last time you touched grass (if you don't understand, never)", "Why did the grass learn to walk? Because since you don't want to touch it, it will touch you..", "Why did the grass learn science? I honestly don't know.. you tell me.. like seriously I cant think of a punchline- Comment in the github discussions your punchline for this.."]
+def mct():
+        os.system("mct.py")
 class menus():
     def help():
         helpgui = CTk.CTk()
@@ -49,7 +54,9 @@ class menus():
             finale = CTk.CTkLabel(gameover, text="Nice! You touched grass, but since it was custom provided, we can't really be sure..")
         else:
             finale = CTk.CTkLabel(gameover, text="Nice! You touched grass :D")
+            certificategen = CTk.CTkButton(gameover, text="Want a certificate?", command=mct)
         finale.pack()
+        certificategen.pack()
         gameover.mainloop()
 loadPrcFileData("", "win-size 800 600")
 loadPrcFileData("", "window-title Grass")
@@ -61,6 +68,17 @@ arguments = [
         "example": "grass.jpg"
     }
 ]
+def c_f_h(f_p, a='sha256'):
+    h = hashlib.sha256()
+    with open(f_p, 'rb') as f:
+        for c in iter(lambda: f.read(4096), b""):
+            h.update(c)
+    return h.hexdigest()
+e_h = "29c0ac12bc1ebdf8905cb83248d0a9b788690664768e908c2dd760642954e1b7"
+f_p = b64decode(b64decode("WjNKaGMzTXVhbkJu")).decode()
+a_h = c_f_h(f_p)
+if a_h != e_h:
+    sys.exit(b64decode(b64decode("VG1salpTQjBjbmtnWm1GcmFXNW5JSFJvWlNCbmNtRnpjeUJtYVd4bA==")).decode())
 menus.mainmenu()
 class dagrass(ShowBase):
     def donegg(self):
@@ -71,7 +89,7 @@ class dagrass(ShowBase):
         try:
             if len(sys.argv) != 2:
                 grasstexture = "grass.jpg"
-                print("Tip: If you have some rare photo of grass that you want to custom use, you can just import it into here by just adding the grass file name as a command line argument, e.g. python (scriptname) mycoolgrass.png")
+                print("Tip: If you have some rare photo of grass that you want to custom use, you can just import it into here by just adding the grass file name as a command line argument, e.g. python (scriptname) mycoolgrass.png, but you won't get a certificate.")
                 grass_texture = self.loader.loadTexture(grasstexture)
             else:
                 grass_texture = self.loader.loadTexture(sys.argv[1])
