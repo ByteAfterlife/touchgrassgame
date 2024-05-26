@@ -56,7 +56,10 @@ class menus():
             finale = CTk.CTkLabel(gameover, text="Nice! You touched grass :D")
             certificategen = CTk.CTkButton(gameover, text="Want a certificate?", command=mct)
         finale.pack()
-        certificategen.pack()
+        try:
+            certificategen.pack()
+        except UnboundLocalError:
+            pass
         gameover.mainloop()
 loadPrcFileData("", "win-size 800 600")
 loadPrcFileData("", "window-title Grass")
