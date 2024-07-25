@@ -12,7 +12,7 @@ from base64 import b64decode
 import os
 stupidtips = ["Did you know that grass has ass in it?", "Touching virtual grass won't increase your actual health! Go touch real grass.", "Why did the sheep eat grass? Because it was hungry *cricket chirping*", "What is in between the letters G and H on your keyboard is the last time you touched grass (if you don't understand, never)", "Why did the grass learn to walk? Because since you don't want to touch it, it will touch you..", "Why did the grass learn science? I honestly don't know.. you tell me.. like seriously I cant think of a punchline- Comment in the github discussions your punchline for this.."]
 def mct():
-        os.system("mct.py")
+        os.system("python3.11 mct.py")
 class menus():
     def help():
         helpgui = CTk.CTk()
